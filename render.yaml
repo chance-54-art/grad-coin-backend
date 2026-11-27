@@ -1,0 +1,14 @@
+# GRAD-COIN backend - Render (free tier, no paid plan)
+# Deploy: connect this repo on https://render.com -> New Web Service, or use a Blueprint.
+services:
+  - type: web
+    name: grad-coin
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: PORT
+        value: 10000
